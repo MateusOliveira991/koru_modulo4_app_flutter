@@ -6,8 +6,8 @@ class AppColors{
   static const Color tertiaryColor = Color(0xFF2FB7AD);
   static const Color quaternaryColor = Color(0xFFAECDE2);
 
-  // static const Color backgroundColor = Color ();
-  // static const Color accentColor = Color();
-  // static const Color textColor = Color();
+  static const Color backgroundColor = Color (0xFF043959);
+  static const Color accentColor = Color(0xFF00A67E);
+  static const Color textColor = Color(0xFFE5E5E5);
 
 }
