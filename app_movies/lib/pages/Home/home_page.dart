@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_colors.dart';
 import 'package:app_movies/pages/widgets/lista_completa.dart';
 
-
-
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -67,14 +65,10 @@ class MyHomePage extends StatelessWidget {
                     selectionColor: AppColors.textColor,
                   ),
                 ),
-              
               ],
             ),
 
-           
             ListaCompleta(),
-            
-            
           ],
         ),
       ),
