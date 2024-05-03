@@ -1,6 +1,5 @@
 import 'package:app_movies/pages/widgets/lista_populares.dart';
 import 'package:flutter/material.dart';
-// import 'package:app_movies/core/app_images.dart';
 import 'package:app_movies/core/app_colors.dart';
 import 'package:app_movies/pages/widgets/lista_completa.dart';
 
@@ -36,11 +35,28 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
         ),
-        child: const Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search",
+                  prefixIcon: const Icon(Icons.search),
+                  contentPadding: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 20.0),
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                    borderSide: BorderSide.none,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white.withOpacity(0.1),
+                ),
+              ),
+            ),
+            const Padding(
               padding: EdgeInsets.all(30),
               child: Text(
                 'Mais populares',
@@ -49,11 +65,8 @@ class MyHomePage extends StatelessWidget {
                 selectionColor: AppColors.textColor,
               ),
             ),
-            // SizedBox(height: 5),
-            ListaFilmes(),
-
-            // SizedBox(height: 10),
-            Row(
+            const ListaFilmes(),
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(
@@ -67,7 +80,6 @@ class MyHomePage extends StatelessWidget {
                 ),
               ],
             ),
-
             ListaCompleta(),
           ],
         ),
