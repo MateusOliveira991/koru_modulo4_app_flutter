@@ -2,6 +2,8 @@ import 'package:app_movies/pages/widgets/lista_populares.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_colors.dart';
 import 'package:app_movies/pages/widgets/lista_completa.dart';
+import 'package:iconsax/iconsax.dart';
+
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -83,6 +85,33 @@ class MyHomePage extends StatelessWidget {
             ListaCompleta(),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Icon(Iconsax.home),
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Icon(Iconsax.ticket),
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Icon(Iconsax.save_2),
+            ),
+            label: '',
+          ),
+        ],
+        selectedItemColor: Color(0xFFBCBCCD),
+        unselectedItemColor: Color(0xFFBCBCCD),
       ),
     );
   }
