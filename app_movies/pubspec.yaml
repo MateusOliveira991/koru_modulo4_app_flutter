@@ -64,7 +64,20 @@ flutter:
     - assets/images/teste.png
     - assets/images/filme1.png
     - assets/images/filme2.png
-    
+  
+  fonts: 
+    - family: Merriweather
+      fonts: 
+        - asset: assets/fonts/MerriweatherBlack.ttf
+          weight: 900
+    - family: Mulish
+      fonts: 
+        - asset: assets/fonts/MuliBold.ttf
+          weight: 700
+        - asset: assets/fonts/MuliRegular.ttf
+          weight: 400
+        - asset: assets/fonts/MuliSemiBold.ttf
+          weight: 600
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

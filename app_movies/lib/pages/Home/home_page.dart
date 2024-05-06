@@ -20,6 +20,8 @@ class MyHomePage extends StatelessWidget {
             style: TextStyle(
               color: AppColors.textColor,
               fontSize: 40,
+              fontFamily: 'Merriweather',
+              fontWeight: FontWeight.w900
             ),
           ),
         ),
@@ -42,7 +44,7 @@ class MyHomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(15.0),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Search",
@@ -59,12 +61,16 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(30),
+              padding: EdgeInsets.all(20),
               child: Text(
                 'Mais populares',
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Merriweather',
+                  fontWeight: FontWeight.w900,
+                  color: AppColors.textColor
+                ),
                 textAlign: TextAlign.left,
-                selectionColor: AppColors.textColor,
               ),
             ),
             const ListaFilmes(),
@@ -72,12 +78,17 @@ class MyHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(20),
                   child: Text(
                     'Lista completa',
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Merriweather',
+                      fontWeight: FontWeight.w900,
+                      color: AppColors.textColor
+                      ),
                     textAlign: TextAlign.left,
-                    selectionColor: AppColors.textColor,
+                    
                   ),
                 ),
               ],
