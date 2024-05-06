@@ -10,20 +10,20 @@ class ListaCompleta extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Sinopse()),
+          MaterialPageRoute(builder: (context) => const Sinopse()),
         );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
-        child: ListTile(
-          leading: SizedBox(
-            width: 150,
-            height: 250,
-            child: ClipRRect(
-              child: Image.network(
-                imagePath,
-                fit: BoxFit.cover,
-              ),
+        child: Container(
+          width: 100,
+          height: 150,
+          margin: const EdgeInsets.only(left: 15.0), 
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0), 
+            image: DecorationImage(
+              image: NetworkImage(imagePath),
+              fit: BoxFit.cover,
             ),
           ),
         ),
@@ -33,25 +33,27 @@ class ListaCompleta extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: ListView(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+        child: Row(
         children: <Widget>[
-          padraoImage(context, AppImages.filme1),
-          padraoImage(context, AppImages.filme2),
-          padraoImage(context, AppImages.filme3),
-          padraoImage(context, AppImages.filme4),
-          padraoImage(context, AppImages.filme5),
-          padraoImage(context, AppImages.filme6),
-          padraoImage(context, AppImages.filme7),
-          padraoImage(context, AppImages.filme8),
-          padraoImage(context, AppImages.filme9),
-          padraoImage(context, AppImages.filme10),
-          padraoImage(context, AppImages.filme11),
-          padraoImage(context, AppImages.filme12),
-          padraoImage(context, AppImages.filme13),
-          padraoImage(context, AppImages.filme14),
-        ],
-      ),
-    );
+            padraoImage(context, AppImages.filme1),
+            padraoImage(context, AppImages.filme2),
+            padraoImage(context, AppImages.filme3),
+            padraoImage(context, AppImages.filme4),
+            padraoImage(context, AppImages.filme5),
+            padraoImage(context, AppImages.filme6),
+            padraoImage(context, AppImages.filme7),
+            padraoImage(context, AppImages.filme8),
+            padraoImage(context, AppImages.filme9),
+            padraoImage(context, AppImages.filme10),
+            padraoImage(context, AppImages.filme11),
+            padraoImage(context, AppImages.filme12),
+            padraoImage(context, AppImages.filme13),
+            padraoImage(context, AppImages.filme14),
+          ],
+        ),
+      );
+    
   }
 }
