@@ -1,13 +1,10 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables
 
-import 'dart:html';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,53 +59,21 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-  final List<String> series = <String>[
-title: "Castle in the Sky" 
-title: "My Neighbor Totoro",
-title: "Kiki's Delivery Service",
-title: "Only Yesterday",
-title: "Porco Rosso",
-title: "Pom Poko"
-title: "Whisper of the Heart",
-title: "Princess Mononoke",
-title: "My Neighbors the Yamadas",
-title: "The Cat Returns",
-title: "Howl's Moving Castle",
-title: "Tales from Earthsea",
-title: "Ponyo",
-title: "Arrietty",
-title: "From Up on Poppy Hill",
-title: "The Wind Rises",
-title: "The Tale of the Princess Kaguya"
-title: "When Marnie Was There",
-title: "The Red Turtle",
-title: "Earwig and the Witch",
-title: Senna,
-title: Mundo Sitio do Picapau,
-title: Shrek5
-
-  ];
-  
-  mixin title {
-  }
-
   @override
   Widget build(BuildContext context) {
-    List<String> filmes;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Filmes e Séries'),
+        title: const Text('Filmes e Series'),
       ),
       body: ListView(
         children: [
           _buildSection('FILMES', "filmes" as List<String>),
-          _buildSection('SÉRIES', series),
-        ],
-      )
-    );
-      }
-
-
+          _buildSection('SERIES', "series" as List<String>,
+          ),
+        ]
+  }
+  
+         
   Widget _buildSection(String title, List<String> items) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,62 +99,16 @@ title: Shrek5
   }
 
  
- class VideoScreen extends StatelessWidget {
+ // ignore: must_be_immutable, use_key_in_widget_constructors
+ abstract class VideoScreen extends StatelessWidget {
   late final String videoId;
 
-  @override
-  Widget build(BuildContext context) {
-    // ignore: prefer_typing_uninitialized_variables
-    ListBody or;
-    var youtubePlayerFlags4 = YoutubePlayerFlags (
-            autoplay: true,
-              mute: false,
-                var ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ;
-                  },
-                ), youtubePlayerFlags3 = youtubePlayerFlags4;
-    var youtubePlayerFlags2 = youtubePlayerFlags3;
-            var youtubePlayerFlags = youtubePlayerFlags2;
-    var VideoId;
-    var expectade;
-    var youtubePlayerController = YoutubePlayerController( 
-            // ignore: cast_from_nullable_always_fails
-            RequestAnimationFrameCallback dynamic VideoId as Type Type: null, VideoId: null, initialVideoId: null, flags: null: YoutubePlayerController,
-            flags: youtubePlayerFlags, Type: null, initialVideoId: Type: Null; 
-          );
-    );
-  }
- }
+  
     dynamic ControlsDetails; appBar () {
-        title: const Text('Video Player');
-    dynamic; return; Scaffold( 
-      appBar = appBar,
-      body = Center(
-        child: YoutubePlayer(
-          required youtubePlayerController,
-          showVideoProgressIndicator: true,
-          progressIndicatorColor: Colors.blueAccent,
-          progressColors: const ProgressBarColors(
-            playedColor: Colors.blue,
-            handleColor: Colors.blueAccent,
-          ),
-          onReady: () {
-            // Adicionar ações ao vídeo estar pronto
-          },
-  
-          onEnded: (metaData) {
-            // Adicionar ações ao vídeo terminar
-        , controller: null,, controller: null,, controller: null,, controller: null,, controller: null,, controller: null,, controller: null,, controller: null,)
-        ),
-      } as ControlsDetails,
-      }
-  
-
-class YoutubePlayerController {
-  // ignore: avoid_types_as_parameter_names
-  YoutubePlayerController(Type initialVideoId, Type VideoId, Type type, expectade, Type videoId, {required Type, String? videoId, required YoutubePlayerFlags flags, required Type initialVideoId, required Type VideoId,});
+        const Text('Video Player');
+    dynamic; return;} 
+      
+    
 }
 
 YoutubePlayer(Required required, youtubePlayerController, {required controller, required bool showVideoProgressIndicator, required MaterialAccentColor progressIndicatorColor, required progressColors, required Null Function() onReady, required Null Function(dynamic metaData) onEnded}) {
@@ -203,9 +122,13 @@ class YoutubePlayerFlags {
 dynamic autoplay = autoplay; {
 
 }
+var mixin;
+{
+}
+
 
 dynamic VideoScreenString; {
-  String videoId{};
+  String videoId{};(Action)
 dynamic dynamic= VideoScreen(videoId: videoId = '14GZmJnwLuw') {
 dynamic dynamic= VideoScreen(videoId: videoId); 
 VideoScreen(videoId = 'K-PdbfkA7LM')
@@ -231,10 +154,6 @@ VideoScreen(videoId = '_PfhotgXEeQ')
 VideoScreen(videoId = 'IiL-6sb4bs4')
 VideoScreen(videoId = 'RlVrpa68E1s')
 VideoScreen(videoId ='IVHObu-nAaI')
-);
-
-mixin youtubePlayerController {
-}
 )
-}
+};
 }
