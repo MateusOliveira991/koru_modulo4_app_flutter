@@ -6,7 +6,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:app_movies/base/base_movies.dart';
 import 'package:app_movies/pages/Home/home_details_screen.dart';
 
-
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -20,14 +19,13 @@ class MyHomePage extends StatelessWidget {
             title: const Text(
               'Ghibli Stream',
               style: TextStyle(
-                color: AppColors.textColor,
-                fontSize: 40,
-                fontFamily: 'Merriweather',
-                fontWeight: FontWeight.w900
-              ),
+                  color: AppColors.textColor,
+                  fontSize: 40,
+                  fontFamily: 'Merriweather',
+                  fontWeight: FontWeight.w900),
             ),
             centerTitle: true,
-            pinned: false, 
+            pinned: false,
           ),
           SliverToBoxAdapter(
             child: Container(
@@ -53,8 +51,7 @@ class MyHomePage extends StatelessWidget {
                         hintText: "Search",
                         prefixIcon: const Icon(Icons.search),
                         contentPadding: const EdgeInsets.symmetric(
-                            vertical: 10.0, 
-                            horizontal: 20.0),
+                            vertical: 10.0, horizontal: 20.0),
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(25.0)),
                           borderSide: BorderSide.none,
@@ -69,11 +66,10 @@ class MyHomePage extends StatelessWidget {
                     child: Text(
                       'Mais populares',
                       style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Merriweather',
-                        fontWeight: FontWeight.w900,
-                        color: AppColors.textColor
-                      ),
+                          fontSize: 20,
+                          fontFamily: 'Merriweather',
+                          fontWeight: FontWeight.w900,
+                          color: AppColors.textColor),
                       textAlign: TextAlign.left,
                     ),
                   ),
@@ -92,7 +88,8 @@ class MyHomePage extends StatelessWidget {
                       enlargeCenterPage: true,
                       scrollDirection: Axis.horizontal,
                     ),
-                    itemBuilder: (BuildContext context, int index, int realIndex) {
+                    itemBuilder:
+                        (BuildContext context, int index, int realIndex) {
                       final movie = filteredMovies[index];
                       return GestureDetector(
                         onTap: () {
@@ -106,11 +103,11 @@ class MyHomePage extends StatelessWidget {
                         child: Container(
                           margin: EdgeInsets.symmetric(horizontal: 5),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: NetworkImage(movie.image),
-                              fit: BoxFit.fill,
-                            )),
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: NetworkImage(movie.image),
+                                fit: BoxFit.fill,
+                              )),
                         ),
                       );
                     },
@@ -120,11 +117,10 @@ class MyHomePage extends StatelessWidget {
                     child: Text(
                       'Lista Completa',
                       style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Merriweather',
-                        fontWeight: FontWeight.w900,
-                        color: AppColors.textColor
-                      ),
+                          fontSize: 20,
+                          fontFamily: 'Merriweather',
+                          fontWeight: FontWeight.w900,
+                          color: AppColors.textColor),
                       textAlign: TextAlign.left,
                     ),
                   ),
@@ -144,7 +140,8 @@ class MyHomePage extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                          margin: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 20),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -168,8 +165,7 @@ class MyHomePage extends StatelessWidget {
                                         fontSize: 16,
                                         fontFamily: 'Mulish',
                                         fontWeight: FontWeight.bold,
-                                        color: AppColors.textColor
-                                        ,
+                                        color: AppColors.textColor,
                                       ),
                                     ),
                                     SizedBox(height: 5),
