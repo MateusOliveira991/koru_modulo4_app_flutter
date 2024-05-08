@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_movies/pages/Home/home_page.dart';
-import 'package:app_movies/pages/Sinopse/sinopse.dart';
-
-
-
+// import 'package:app_movies/pages/Sinopse/sinopse.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,15 +9,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Stream',
       theme: ThemeData(
-        
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       initialRoute: '/home',
       routes: {
         '/home': (context) => const MyHomePage(),
-        '/sinopse': (context) => const Sinopse(),
-
+        // '/sinopse': (context) => const Sinopse(),
       },
     );
   }

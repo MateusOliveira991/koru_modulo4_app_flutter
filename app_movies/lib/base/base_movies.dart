@@ -456,7 +456,7 @@ List<Movie> movies = [
   ),
   Movie(
     id: "578ae244-7750-4d9f-867b-f3cd3d6fecf4",
-    title: "The Tale of the Princess Kaguya",
+    title: "The Tale Princess Kaguya",
     originalTitle: "かぐや姫の物語",
     originalTitleRomanised: "Kaguya-Hime no Monogatari",
     image:
