@@ -7,16 +7,16 @@ import 'package:app_movies/base/base_movies.dart';
 import 'package:app_movies/pages/Home/home_details_screen.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
+          const SliverAppBar(
             backgroundColor: AppColors.backgroundColor,
-            title: const Text(
+            title: Text(
               'Ghibli Stream',
               style: TextStyle(
                   color: AppColors.textColor,
@@ -61,8 +61,8 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(30),
+                  const Padding(
+                    padding: EdgeInsets.all(30),
                     child: Text(
                       'Mais populares',
                       style: TextStyle(
@@ -82,8 +82,9 @@ class MyHomePage extends StatelessWidget {
                       enableInfiniteScroll: true,
                       reverse: false,
                       autoPlay: true,
-                      autoPlayInterval: Duration(seconds: 3),
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayInterval: const Duration(seconds: 3),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
                       autoPlayCurve: Curves.fastOutSlowIn,
                       enlargeCenterPage: true,
                       scrollDirection: Axis.horizontal,
@@ -101,7 +102,7 @@ class MyHomePage extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: 5),
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
@@ -112,8 +113,8 @@ class MyHomePage extends StatelessWidget {
                       );
                     },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(30),
+                  const Padding(
+                    padding: EdgeInsets.all(30),
                     child: Text(
                       'Lista Completa',
                       style: TextStyle(
@@ -126,7 +127,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                   ListView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: movies.length,
                     itemBuilder: (BuildContext context, int index) {
                       final movie = movies[index];
@@ -140,7 +141,7 @@ class MyHomePage extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          margin: EdgeInsets.symmetric(
+                          margin: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 20),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -154,44 +155,44 @@ class MyHomePage extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              SizedBox(width: 20),
+                              const SizedBox(width: 20),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       movie.title,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 16,
                                         fontFamily: 'Mulish',
                                         fontWeight: FontWeight.bold,
                                         color: AppColors.textColor,
                                       ),
                                     ),
-                                    SizedBox(height: 5),
+                                    const SizedBox(height: 5),
                                     Text(
-                                      "${movie.originalTitle}%",
-                                      style: TextStyle(
+                                      movie.originalTitle,
+                                      style: const TextStyle(
                                         fontSize: 13,
                                         fontFamily: 'Mulish',
                                         fontWeight: FontWeight.w200,
                                         color: Colors.grey,
                                       ),
                                     ),
-                                    SizedBox(height: 5),
+                                    const SizedBox(height: 5),
                                     Text(
-                                      "${movie.releaseDate}",
-                                      style: TextStyle(
+                                      movie.releaseDate,
+                                      style: const TextStyle(
                                         fontSize: 13,
                                         fontFamily: 'Mulish',
                                         fontWeight: FontWeight.w200,
                                         color: Colors.grey,
                                       ),
                                     ),
-                                    SizedBox(height: 5),
+                                    const SizedBox(height: 5),
                                     Text(
                                       "Rotten Tomatoes: ${movie.rtScore}%",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 13,
                                         fontFamily: 'Mulish',
                                         fontWeight: FontWeight.w200,
@@ -237,8 +238,8 @@ class MyHomePage extends StatelessWidget {
             label: '',
           ),
         ],
-        selectedItemColor: Color(0xFFBCBCCD),
-        unselectedItemColor: Color(0xFFBCBCCD),
+        selectedItemColor: const Color(0xFFBCBCCD),
+        unselectedItemColor: const Color(0xFFBCBCCD),
       ),
     );
   }
