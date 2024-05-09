@@ -216,6 +216,8 @@ class MovieInfoItem extends StatelessWidget {
       children: [
         Text(
           title,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: const TextStyle(
             fontFamily: 'Merriweather',
             fontWeight: FontWeight.w900,
@@ -226,6 +228,8 @@ class MovieInfoItem extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           info,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: const TextStyle(
             color: AppColors.textColor,
           ),
