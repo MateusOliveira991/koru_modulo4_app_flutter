@@ -26,12 +26,12 @@ class MovieDetailScreen extends StatelessWidget {
             fontWeight: FontWeight.w900,
           ),
         ),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: AppColors.iconColor,
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.backgroundColor,
         ),
         child: SingleChildScrollView(
@@ -51,7 +51,7 @@ class MovieDetailScreen extends StatelessWidget {
               Center(
                 child: Container(
                   height: 75,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -64,7 +64,7 @@ class MovieDetailScreen extends StatelessWidget {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -77,8 +77,8 @@ class MovieDetailScreen extends StatelessWidget {
                             fontWeight: FontWeight.w900,
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Icon(
+                        const SizedBox(width: 10),
+                        const Icon(
                           Icons.bookmark_border_outlined,
                           color: AppColors.iconColorBlack,
                         ),
@@ -101,13 +101,13 @@ class MovieDetailScreen extends StatelessWidget {
                       Row(
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 6),
                             decoration: BoxDecoration(
                               color: AppColors.textColorBlack,
                               borderRadius: BorderRadius.circular(30),
                             ),
-                            child: Text(
+                            child: const Text(
                               'FANTASIA',
                               style: TextStyle(
                                 fontSize: 13,
@@ -115,16 +115,16 @@ class MovieDetailScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(width: 20),
+                          const SizedBox(width: 20),
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 6),
                             decoration: BoxDecoration(
                               color: AppColors.textColorBlack,
                               borderRadius: BorderRadius.circular(
                                   50), // Adiciona um BorderRadius de 50px
                             ),
-                            child: Text(
+                            child: const Text(
                               'AVENTURA',
                               style: TextStyle(
                                 fontSize: 13,
@@ -132,13 +132,13 @@ class MovieDetailScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 24)
+                          const SizedBox(height: 24)
                         ],
                       ),
-                      SizedBox(height: 15),
-                      Text(
+                      const SizedBox(height: 15),
+                      const Text(
                         "Sinopse:",
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 23,
                           color: AppColors.textColor,
                           fontFamily: 'Merriweather',
@@ -177,10 +177,10 @@ class MovieDetailScreen extends StatelessWidget {
                                     ),
                                     MovieInfoItem(
                                       title: 'Duração',
-                                      info: movie.runningTime,
+                                      info: "${movie.runningTime} min",
                                     ),
                                   ]),
-                              SizedBox(width: 72),
+                              const SizedBox(width: 72),
                               Image.asset(
                                 'assets/images/jiji.png',
                                 width: 140,
