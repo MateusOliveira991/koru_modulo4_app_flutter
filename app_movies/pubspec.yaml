@@ -63,6 +63,22 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/jiji.png
+    - assets/images/livro1_2.png
+    - assets/images/livro1.png
+    - assets/images/livro1_1.png
+    - assets/images/livro1_3.png
+    - assets/images/livro2.png
+    - assets/images/livro2_1.png
+    - assets/images/livro2_2.png
+    - assets/images/livro2_3.png
+    - assets/images/livro3.png
+    - assets/images/livro3_1.png
+    - assets/images/livro3_2.png
+    - assets/images/livro3_3.png
+    - assets/images/livro4.png
+    - assets/images/livro4_1.png
+    - assets/images/livro4_2.png
+    - assets/images/livro4_3.png
 
   fonts:
     - family: Merriweather
