@@ -39,7 +39,7 @@ class Book {
 class BookPage extends StatelessWidget {
   final List<Book> books = [
     Book(
-      title: 'Prince Mononoke',
+      title: 'Princess Mononoke',
       price: 374.90,
       image: AppImages.livro1,
       description:
