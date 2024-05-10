@@ -1,3 +1,4 @@
+import 'package:app_movies/pages/Books/books_page.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -8,6 +9,8 @@ import 'package:app_movies/pages/Home/home_details_screen.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -221,25 +224,34 @@ class MyHomePage extends StatelessWidget {
               padding: EdgeInsets.only(top: 20),
               child: Icon(Iconsax.home),
             ),
-            label: '',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Padding(
               padding: EdgeInsets.only(top: 20),
               child: Icon(Iconsax.ticket),
             ),
-            label: '',
+            label: 'Favorites',
           ),
           BottomNavigationBarItem(
             icon: Padding(
               padding: EdgeInsets.only(top: 20),
-              child: Icon(Iconsax.save_2),
+              child: Icon(Iconsax.book_1),
             ),
-            label: '',
+            label: 'Books',
           ),
         ],
         selectedItemColor: const Color(0xFFBCBCCD),
         unselectedItemColor: const Color(0xFFBCBCCD),
+        onTap: (int index) {
+          if (index == 2) { //2 é o icone do livro
+            
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => BookPage()),
+            );
+          }
+        },
       ),
     );
   }

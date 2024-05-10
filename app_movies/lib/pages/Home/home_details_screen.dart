@@ -180,7 +180,7 @@ class MovieDetailScreen extends StatelessWidget {
                                       info: "${movie.runningTime} min",
                                     ),
                                   ]),
-                              const SizedBox(width: 72),
+                              const SizedBox(width: 40),
                               Image.asset(
                                 'assets/images/jiji.png',
                                 width: 140,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:app_movies/pages/Home/home_page.dart';
 // import 'package:app_movies/pages/Sinopse/sinopse.dart';
+import 'package:app_movies/pages/Books/books_page.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const MyHomePage(),
         // '/sinopse': (context) => const Sinopse(),
+        '/books': (context) => BookPage(),
+
       },
     );
   }
