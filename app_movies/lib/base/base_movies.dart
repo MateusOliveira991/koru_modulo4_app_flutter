@@ -229,7 +229,7 @@ List<Movie> movies = [
   ),
   Movie(
     id: "45204234-adfd-45cb-a505-a8e7a676b114",
-    title: "My Neighbors the Yamadas",
+    title: "My Neighbors Yamadas",
     originalTitle: "ホーホケキョ となりの山田くん",
     originalTitleRomanised: "Hōhokekyo tonari no Yamada-kun",
     image:
