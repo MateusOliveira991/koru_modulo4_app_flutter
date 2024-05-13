@@ -43,7 +43,7 @@ class BookPage extends StatelessWidget {
       price: 374.90,
       image: AppImages.livro1,
       description:
-          'Toda a ideia incial para o cinema é capturada aqui. Comentários, imagens coloridas, esboços, cenários, storyboards. Uma pérola para qualquer fã!',
+          'Toda a ideia inicial para o cinema é capturada aqui. Comentários, imagens coloridas, esboços, cenários, storyboards. Uma pérola para qualquer fã!',
       images: [
         AppImages.livro1_1,
         AppImages.livro1_2,
