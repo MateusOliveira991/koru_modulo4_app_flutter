@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:iconsax/iconsax.dart';
@@ -8,7 +10,7 @@ import 'package:app_movies/pages/Books/books_page.dart';
 import 'package:app_movies/pages/Home/home_details_screen.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -104,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   if (searchText.isEmpty)
                     CarouselSlider.builder(
                       itemCount:
-                          filteredMovies.length > 0 ? filteredMovies.length : 1,
+                          filteredMovies.isNotEmpty ? filteredMovies.length : 1,
                       options: CarouselOptions(
                         height: 280,
                         viewportFraction: 0.5,
@@ -161,10 +163,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount:
-                        filteredMovies.length > 0 ? filteredMovies.length : 1,
+                        filteredMovies.isNotEmpty ? filteredMovies.length : 1,
                     itemBuilder: (BuildContext context, int index) {
                       if (filteredMovies.isEmpty) {
-                        return Center(
+                        return const Center(
                           child: Text("Nenhum filme encontrado"),
                         );
                       }
