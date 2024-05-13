@@ -87,66 +87,63 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(30),
-                    child: Text(
-                      'Mais populares',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Merriweather',
-                        fontWeight: FontWeight.w900,
-                        color: AppColors.textColor,
+                  if (searchText.isEmpty)
+                    const Padding(
+                      padding: EdgeInsets.all(30),
+                      child: Text(
+                        'Mais populares',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Merriweather',
+                          fontWeight: FontWeight.w900,
+                          color: AppColors.textColor,
+                        ),
+                        textAlign: TextAlign.left,
                       ),
-                      textAlign: TextAlign.left,
                     ),
-                  ),
-                  CarouselSlider.builder(
-                    itemCount:
-                        filteredMovies.length > 0 ? filteredMovies.length : 1,
-                    options: CarouselOptions(
-                      height: 280,
-                      viewportFraction: 0.5,
-                      initialPage: 0,
-                      enableInfiniteScroll: true,
-                      reverse: false,
-                      autoPlay: true,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      autoPlayAnimationDuration:
-                          const Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enlargeCenterPage: true,
-                      scrollDirection: Axis.horizontal,
-                    ),
-                    itemBuilder:
-                        (BuildContext context, int index, int realIndex) {
-                      if (filteredMovies.isEmpty) {
-                        return Center(
-                          child: Text("Nenhum filme encontrado"),
-                        );
-                      }
-                      final movie = filteredMovies[index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => MovieDetailScreen(movie: movie),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 5),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: NetworkImage(movie.image),
-                              fit: BoxFit.fill,
+                  if (searchText.isEmpty)
+                    CarouselSlider.builder(
+                      itemCount:
+                          filteredMovies.length > 0 ? filteredMovies.length : 1,
+                      options: CarouselOptions(
+                        height: 280,
+                        viewportFraction: 0.5,
+                        initialPage: 0,
+                        enableInfiniteScroll: true,
+                        reverse: false,
+                        autoPlay: true,
+                        autoPlayInterval: const Duration(seconds: 3),
+                        autoPlayAnimationDuration:
+                            const Duration(milliseconds: 800),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        enlargeCenterPage: true,
+                        scrollDirection: Axis.horizontal,
+                      ),
+                      itemBuilder:
+                          (BuildContext context, int index, int realIndex) {
+                        final movie = filteredMovies[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => MovieDetailScreen(movie: movie),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: NetworkImage(movie.image),
+                                fit: BoxFit.fill,
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    },
-                  ),
+                        );
+                      },
+                    ),
                   const Padding(
                     padding: EdgeInsets.all(30),
                     child: Text(
