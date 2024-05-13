@@ -2,13 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_colors.dart';
 import 'package:app_movies/base/base_movies.dart';
 
-class MovieDetailScreen extends StatelessWidget {
+class MovieDetailScreen extends StatefulWidget {
   final Movie movie;
 
   const MovieDetailScreen({
     super.key,
     required this.movie,
   });
+
+  @override
+  _MovieDetailScreenState createState() => _MovieDetailScreenState();
+}
+
+class _MovieDetailScreenState extends State<MovieDetailScreen> {
+  bool isBookmarked = false;
+
+  void toggleBookmark() {
+    setState(() {
+      isBookmarked = !isBookmarked;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,164 +48,177 @@ class MovieDetailScreen extends StatelessWidget {
           color: AppColors.backgroundColor,
         ),
         child: SingleChildScrollView(
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            Container(
-              height: 300,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(movie.movieBanner),
-                  fit: BoxFit.cover,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                height: 300,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(widget.movie.movieBanner),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Center(
-                child: Container(
-                  height: 75,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        AppColors.backgroundColor,
-                        AppColors.accentColor,
-                        AppColors.accentColor,
-                        AppColors.backgroundColor,
-                      ],
+              const SizedBox(height: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Container(
+                      height: 75,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            AppColors.backgroundColor,
+                            AppColors.accentColor,
+                            AppColors.accentColor,
+                            AppColors.backgroundColor,
+                          ],
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              widget.movie.title,
+                              style: const TextStyle(
+                                fontSize: 24,
+                                color: AppColors.textColorBlack,
+                                fontFamily: 'Merriweather',
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            IconButton(
+                              icon: Icon(
+                                isBookmarked
+                                    ? Icons.bookmark
+                                    : Icons.bookmark_border,
+                                color: AppColors.iconColorBlack,
+                              ),
+                              onPressed: () {
+                                toggleBookmark();
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20, top: 10, right: 20, bottom: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          movie.title,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            color: AppColors.textColorBlack,
+                        MovieInfoItem(
+                          title: 'Rotten Tomatoes',
+                          info: '⭐  ${widget.movie.rtScore}%',
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 6),
+                              decoration: BoxDecoration(
+                                color: AppColors.textColorBlack,
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: const Text(
+                                'FANTASIA',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: AppColors.textColor,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 20),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 6),
+                              decoration: BoxDecoration(
+                                color: AppColors.textColorBlack,
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: const Text(
+                                'AVENTURA',
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: AppColors.textColor,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 24)
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        const Text(
+                          "Sinopse:",
+                          style: TextStyle(
+                            fontSize: 23,
+                            color: AppColors.textColor,
                             fontFamily: 'Merriweather',
                             fontWeight: FontWeight.w900,
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        const Icon(
-                          Icons.bookmark_border_outlined,
-                          color: AppColors.iconColorBlack,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 20, top: 10, right: 20, bottom: 10),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      MovieInfoItem(
-                        title: 'Rotten Tomatoes',
-                        info: '⭐  ${movie.rtScore}%',
-                      ),
-
-                      Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 6),
-                            decoration: BoxDecoration(
-                              color: AppColors.textColorBlack,
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: const Text(
-                              'FANTASIA',
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: AppColors.textColor,
-                              ),
-                            ),
+                        const SizedBox(height: 8),
+                        Text(
+                          widget.movie.description,
+                          style: const TextStyle(
+                            fontSize: 17,
+                            color: AppColors.textColor,
                           ),
-                          const SizedBox(width: 20),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 6),
-                            decoration: BoxDecoration(
-                              color: AppColors.textColorBlack,
-                              borderRadius: BorderRadius.circular(
-                                  50), // Adiciona um BorderRadius de 50px
-                            ),
-                            child: const Text(
-                              'AVENTURA',
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: AppColors.textColor,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 24)
-                        ],
-                      ),
-                      const SizedBox(height: 15),
-                      const Text(
-                        "Sinopse:",
-                        style: TextStyle(
-                          fontSize: 23,
-                          color: AppColors.textColor,
-                          fontFamily: 'Merriweather',
-                          fontWeight: FontWeight.w900,
                         ),
-                      ),
-                      const SizedBox(
-                          height:
-                              8), // Adiciona um espaço vertical entre os textos
-                      Text(
-                        movie.description,
-                        style: const TextStyle(
-                          fontSize: 17,
-                          color: AppColors.textColor,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Column(
+                        const SizedBox(height: 16),
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(children: [
-                              Column(
+                            Row(
+                              children: [
+                                Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     MovieInfoItem(
                                       title: 'Diretor',
-                                      info: movie.director,
+                                      info: widget.movie.director,
                                     ),
                                     MovieInfoItem(
                                       title: 'Produtor',
-                                      info: movie.producer,
+                                      info: widget.movie.producer,
                                     ),
                                     MovieInfoItem(
                                       title: 'Data de Lançamento',
-                                      info: movie.releaseDate,
+                                      info: widget.movie.releaseDate,
                                     ),
                                     MovieInfoItem(
                                       title: 'Duração',
-                                      info: "${movie.runningTime} min",
+                                      info: "${widget.movie.runningTime} min",
                                     ),
-                                  ]),
-                              const SizedBox(width: 40),
-                              Image.asset(
-                                'assets/images/jiji.png',
-                                width: 140,
-                                height: 240,
-                                fit: BoxFit.cover,
-                              ),
-                            ]),
-                          ]),
-                    ]),
-              ),
-            ])
-          ]),
+                                  ],
+                                ),
+                                const SizedBox(width: 40),
+                                Image.asset(
+                                  'assets/images/jiji.png',
+                                  width: 140,
+                                  height: 240,
+                                  fit: BoxFit.cover,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
