@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_images.dart';
 import 'package:app_movies/core/app_colors.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +82,6 @@ class BookPage extends StatelessWidget {
         AppImages.livro3_3,
       ],
     ),
-
-
     Book(
       title: 'Ponyo',
       price: 160.90,
@@ -146,7 +143,7 @@ class BookPage extends StatelessWidget {
             ),
             SizedBox(width: 8),
             Padding(
-              padding: const EdgeInsets.only(right: 12.0),
+              padding: EdgeInsets.only(right: 12.0),
               child: Text(
                 'Books Ghibli',
                 style: TextStyle(
@@ -175,7 +172,6 @@ class BookPage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-             
               AppColors.primaryColor,
               Color.fromARGB(255, 4, 56, 89),
             ],
@@ -223,7 +219,7 @@ class BookPage extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'R\$ ' + book.price.toStringAsFixed(2),
+                                'R\$ ${book.price.toStringAsFixed(2)}',
                                 style: const TextStyle(
                                   color: AppColors.textColor,
                                   fontSize: 15,
@@ -253,9 +249,9 @@ class BookPage extends StatelessWidget {
                       CarouselSlider(
                         options: CarouselOptions(
                           autoPlay: true,
-                          autoPlayInterval: Duration(seconds: 2),
+                          autoPlayInterval: const Duration(seconds: 2),
                           autoPlayAnimationDuration:
-                              Duration(milliseconds: 800),
+                              const Duration(milliseconds: 800),
                           autoPlayCurve: Curves.fastOutSlowIn,
                           enlargeCenterPage: true,
                           scrollDirection: Axis.horizontal,
@@ -265,7 +261,8 @@ class BookPage extends StatelessWidget {
                             builder: (BuildContext context) {
                               return Container(
                                 width: MediaQuery.of(context).size.width,
-                                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 5.0),
                                 child: Image.asset(
                                   image,
                                   fit: BoxFit.cover,
@@ -276,7 +273,7 @@ class BookPage extends StatelessWidget {
                         }).toList(),
                       ),
                       const SizedBox(height: 10),
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
@@ -284,12 +281,12 @@ class BookPage extends StatelessWidget {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: Text('Sem estoque'),
+                                  title: const Text('Sem estoque'),
                                   content: const Text(
                                       'Este livro está atualmente sem estoque.'),
                                   actions: <Widget>[
                                     TextButton(
-                                      child: Text('Fechar'),
+                                      child: const Text('Fechar'),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
@@ -299,7 +296,6 @@ class BookPage extends StatelessWidget {
                               },
                             );
                           },
-                          child: Text('Comprar'),
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
                             backgroundColor:
@@ -309,6 +305,7 @@ class BookPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          child: const Text('Comprar'),
                         ),
                       ),
                       const Divider(
