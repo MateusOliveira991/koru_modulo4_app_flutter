@@ -19,7 +19,7 @@ class Movie {
   final List<String> vehicles;
   final String url;
 
-  Movie({
+  const Movie({
     required this.id,
     required this.title,
     required this.originalTitle,
@@ -38,6 +38,28 @@ class Movie {
     required this.vehicles,
     required this.url,
   });
+
+  factory Movie.fromJson(Map<String, dynamic> json) {
+    return Movie(
+      id: json['id'],
+      title: json['title'],
+      originalTitle: json['original_title'],
+      originalTitleRomanised: json['original_title_romanised'],
+      image: json['image'],
+      movieBanner: json['movie_banner'],
+      description: json['description'],
+      director: json['director'],
+      producer: json['producer'],
+      releaseDate: json['release_date'],
+      runningTime: json['running_time'],
+      rtScore: json['rt_score'],
+      people: List<String>.from(json['people']),
+      species: List<String>.from(json['species']),
+      locations: List<String>.from(json['locations']),
+      vehicles: List<String>.from(json['vehicles']),
+      url: json['url'],
+    );
+  }
 }
 
 final filteredMovies =
