@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_colors.dart';
-import 'package:app_movies/base/base_movies.dart';
+import 'package:app_movies/models/movie.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final Movie movie;

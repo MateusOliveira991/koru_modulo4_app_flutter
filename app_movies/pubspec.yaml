@@ -37,6 +37,7 @@ dependencies:
   iconsax: ^0.0.8
   carousel_slider: ^4.0.0
   youtube_player_flutter: ^9.0.1
+  http: ^1.1.2
 
   meta: any
 dev_dependencies:
