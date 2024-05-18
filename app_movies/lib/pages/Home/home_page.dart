@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -9,6 +9,7 @@ import 'package:app_movies/pages/Home/home_details_screen.dart';
 import 'package:app_movies/api/movie_api.dart';
 import 'package:app_movies/widgets/movie_tile.dart';
 import 'package:app_movies/models/movie.dart';
+import 'package:app_movies/pages/Login/login_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -58,8 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
               backgroundColor: AppColors.backgroundColor,
               body: CustomScrollView(
                 slivers: <Widget>[
-                  const SliverAppBar(
+                   SliverAppBar(
                     backgroundColor: AppColors.backgroundColor,
+                    
                     title: Text(
                       'Ghibli Stream',
                       style: TextStyle(
@@ -71,6 +73,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     centerTitle: true,
                     pinned: false,
+                    actions: [
+                      IconButton(
+                        icon: Icon(Icons.exit_to_app, color: Colors.white, size: 30),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginPage()),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                   SliverToBoxAdapter(
                     child: Container(
