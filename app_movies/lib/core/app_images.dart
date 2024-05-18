@@ -19,5 +19,6 @@ class AppImages {
   static const String livro4_1 = 'assets/images/livro4_1.png';
   static const String livro4_2 = 'assets/images/livro4_2.png';
   static const String livro4_3 = 'assets/images/livro4_3.png';
+  static const String login = 'assets/images/login.png';
 
 }

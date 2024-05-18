@@ -38,11 +38,14 @@ dependencies:
   carousel_slider: ^4.0.0
   youtube_player_flutter: ^9.0.1
   http: ^1.1.2
+  flutter_login: ^3.2.0
+ 
 
   meta: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
+    
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -80,6 +83,7 @@ flutter:
     - assets/images/livro4_1.png
     - assets/images/livro4_2.png
     - assets/images/livro4_3.png
+    - assets/images/login.png
 
   fonts:
     - family: Merriweather
