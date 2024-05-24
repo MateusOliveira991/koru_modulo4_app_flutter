@@ -10,6 +10,9 @@ import 'package:app_movies/api/movie_api.dart';
 import 'package:app_movies/widgets/movie_tile.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/pages/Login/login_page.dart';
+import 'package:app_movies/pages/favorite/favorite_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:app_movies/providers/favorites_provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -59,9 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
               backgroundColor: AppColors.backgroundColor,
               body: CustomScrollView(
                 slivers: <Widget>[
-                   SliverAppBar(
+                  SliverAppBar(
                     backgroundColor: AppColors.backgroundColor,
-                    
                     title: Text(
                       'Ghibli Stream',
                       style: TextStyle(
@@ -75,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     pinned: false,
                     actions: [
                       IconButton(
-                        icon: Icon(Icons.exit_to_app, color: Colors.white, size: 30),
+                        icon: Icon(Icons.exit_to_app,
+                            color: Colors.white, size: 30),
                         onPressed: () {
                           Navigator.pushReplacement(
                             context,
@@ -284,6 +287,26 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 color: Colors.grey,
                                               ),
                                             ),
+                                            const SizedBox(width: 10),
+                                            IconButton(
+                                              onPressed: () {
+                                                // Obtenha a instância de FavoritesProvider
+                                                final favoritesProvider =
+                                                    Provider.of<
+                                                            FavoritesProvider>(
+                                                        context,
+                                                        listen: false);
+                                                // Chame o método toggleFavorite para adicionar ou remover o filme
+                                                favoritesProvider
+                                                    .toggleFavorite(movie);
+                                              },
+                                              icon: Icon(
+                                                Iconsax.heart,
+                                                size: 24,
+                                                color: Colors.red,
+                                                // Ajuste a cor do ícone
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -326,7 +349,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 selectedItemColor: const Color(0xFFBCBCCD),
                 unselectedItemColor: const Color(0xFFBCBCCD),
                 onTap: (int index) {
-                  if (index == 2) {
+                  if (index == 1) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => FavoriteScreen(),
+                      ),
+                    );
+                  } else if (index == 2) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (_) => BookPage()),

@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:app_movies/models/movie.dart';
 
 class FavoritesProvider with ChangeNotifier {
+
+  bool isFavorite(String id) {
+    return _favoriteMovies.any((movie) => movie.id == id);
+  }
+
   final List<Movie> _favoriteMovies = [];
 
   List<Movie> get favoriteMovies => _favoriteMovies;
@@ -14,9 +19,5 @@ class FavoritesProvider with ChangeNotifier {
       _favoriteMovies.add(movie);
     }
     notifyListeners();
-  }
-
-  bool isFavorite(String id) {
-    return _favoriteMovies.any((movie) => movie.id == id);
   }
 }
