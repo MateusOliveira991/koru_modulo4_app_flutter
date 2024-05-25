@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_colors.dart';
 import 'package:app_movies/models/movie.dart';
+import 'package:app_movies/pages/favorite/favorites_provider.dart';
+import 'package:provider/provider.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final Movie movie;
@@ -101,10 +103,13 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                                 isBookmarked
                                     ? Icons.bookmark
                                     : Icons.bookmark_border,
-                                color: AppColors.iconColorBlack,
+                                color: Colors.black,
                               ),
                               onPressed: () {
-                                toggleBookmark();
+                                final favoritesProvider =
+                                    Provider.of<FavoritesProvider>(context,
+                                        listen: false);
+                                favoritesProvider.toggleFavorite(widget.movie);
                               },
                             ),
                           ],

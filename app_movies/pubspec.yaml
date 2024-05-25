@@ -39,7 +39,9 @@ dependencies:
   youtube_player_flutter: ^9.0.1
   http: ^1.1.2
   flutter_login: ^3.2.0
- 
+  provider: ^6.1.2
+  shared_preferences: ^2.0.6
+
 
   meta: any
 dev_dependencies:

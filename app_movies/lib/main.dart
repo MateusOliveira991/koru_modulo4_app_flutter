@@ -1,6 +1,21 @@
+import 'package:app_movies/pages/Login/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:app_movies/core/app_widget.dart';
+import 'package:provider/provider.dart'; // Verifique se esta linha está presente
+import 'package:app_movies/pages/favorite/favorites_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => FavoritesProvider(),
+      child: MaterialApp(
+        title: 'My App',
+        home: LoginPage(),
+      ),
+    );
+  }
 }
