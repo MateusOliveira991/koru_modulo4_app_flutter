@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:app_movies/providers/favorites_provider.dart';
-import 'package:app_movies/models/movie.dart';
+import 'package:app_movies/pages/favorite/favorites_provider.dart';
 import 'package:app_movies/pages/Home/home_details_screen.dart';
 
 class FavoriteScreen extends StatelessWidget {

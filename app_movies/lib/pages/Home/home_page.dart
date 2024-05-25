@@ -7,12 +7,11 @@ import 'package:app_movies/core/app_colors.dart';
 import 'package:app_movies/pages/Books/books_page.dart';
 import 'package:app_movies/pages/Home/home_details_screen.dart';
 import 'package:app_movies/api/movie_api.dart';
-import 'package:app_movies/widgets/movie_tile.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/pages/Login/login_page.dart';
 import 'package:app_movies/pages/favorite/favorite_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:app_movies/providers/favorites_provider.dart';
+import 'package:app_movies/pages/favorite/favorites_provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
