@@ -51,9 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
           if (snapshot.data != null) {
             final data = snapshot.data!;
-            data.forEach((item) {
+            for (var item in data) {
               movies.add(item);
-            });
+            }
 
             return Scaffold(
               backgroundColor: AppColors.backgroundColor,
@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 slivers: <Widget>[
                   SliverAppBar(
                     backgroundColor: AppColors.backgroundColor,
-                    title: Text(
+                    title: const Text(
                       'Ghibli Stream',
                       style: TextStyle(
                         color: AppColors.textColor,
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     pinned: false,
                     actions: [
                       IconButton(
-                        icon: Icon(Icons.exit_to_app,
+                        icon: const Icon(Icons.exit_to_app,
                             color: Colors.white, size: 30),
                         onPressed: () {
                           Navigator.pushReplacement(
