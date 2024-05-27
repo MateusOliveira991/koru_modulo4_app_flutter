@@ -93,7 +93,11 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                             const SizedBox(width: 10),
                             IconButton(
                               icon: Icon(
-                                isBookmarked ? Iconsax.heart5 : Iconsax.heart,
+                                context
+                                        .watch<FavoritesProvider>()
+                                        .isFavorite(widget.movie.id)
+                                    ? Iconsax.heart5
+                                    : Iconsax.heart,
                                 color: Colors.red,
                               ),
                               onPressed: () {
