@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:iconsax/iconsax.dart';
@@ -287,25 +285,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ),
                                             ),
                                             const SizedBox(width: 10),
-                                            IconButton(
-                                              onPressed: () {
-                                                // Obtenha a instância de FavoritesProvider
-                                                final favoritesProvider =
-                                                    Provider.of<
-                                                            FavoritesProvider>(
-                                                        context,
-                                                        listen: false);
-                                                // Chame o método toggleFavorite para adicionar ou remover o filme
-                                                favoritesProvider
-                                                    .toggleFavorite(movie);
-                                              },
-                                              icon: Icon(
-                                                Iconsax.heart,
-                                                size: 24,
-                                                color: Colors.red,
-                                                // Ajuste a cor do ícone
-                                              ),
-                                            ),
+                                            // Alteração: IconButton com estado para alternar ícone
+                                            FavoriteIconButton(movie: movie),
                                           ],
                                         ),
                                       ),
@@ -372,5 +353,37 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           );
         });
+  }
+}
+
+class FavoriteIconButton extends StatefulWidget {
+  final Movie movie;
+
+  FavoriteIconButton({required this.movie});
+
+  @override
+  _FavoriteIconButtonState createState() => _FavoriteIconButtonState();
+}
+
+class _FavoriteIconButtonState extends State<FavoriteIconButton> {
+  bool isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        setState(() {
+          isFavorite = !isFavorite;
+        });
+        final favoritesProvider =
+            Provider.of<FavoritesProvider>(context, listen: false);
+        favoritesProvider.toggleFavorite(widget.movie);
+      },
+      icon: Icon(
+        isFavorite ? Iconsax.heart5 : Iconsax.heart,
+        size: 24,
+        color: Colors.red,
+      ),
+    );
   }
 }

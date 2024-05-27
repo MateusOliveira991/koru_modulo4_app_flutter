@@ -1,10 +1,9 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_colors.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/pages/favorite/favorites_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:iconsax/iconsax.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final Movie movie;
@@ -20,12 +19,6 @@ class MovieDetailScreen extends StatefulWidget {
 
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
   bool isBookmarked = false;
-
-  void toggleBookmark() {
-    setState(() {
-      isBookmarked = !isBookmarked;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,12 +93,13 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                             const SizedBox(width: 10),
                             IconButton(
                               icon: Icon(
-                                isBookmarked
-                                    ? Icons.bookmark
-                                    : Icons.bookmark_border,
-                                color: Colors.black,
+                                isBookmarked ? Iconsax.heart5 : Iconsax.heart,
+                                color: Colors.red,
                               ),
                               onPressed: () {
+                                setState(() {
+                                  isBookmarked = !isBookmarked;
+                                });
                                 final favoritesProvider =
                                     Provider.of<FavoritesProvider>(context,
                                         listen: false);
