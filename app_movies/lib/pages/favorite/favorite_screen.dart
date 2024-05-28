@@ -39,32 +39,46 @@ class FavoriteScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: ListView.builder(
-          itemCount: favoriteMovies.length,
-          itemBuilder: (context, index) {
-            final movie = favoriteMovies[index];
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => MovieDetailScreen(movie: movie),
-                  ),
-                );
-              },
-              child: ListTile(
-                leading: Image.network(movie.image),
-                title: Text(
-                  movie.title,
-                  style: const TextStyle(color: Colors.white),
-                ),
-                subtitle: Text(
-                  movie.originalTitle,
-                  style: const TextStyle(color: Colors.white),
-                ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: favoriteMovies.length,
+                itemBuilder: (context, index) {
+                  final movie = favoriteMovies[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => MovieDetailScreen(movie: movie),
+                        ),
+                      );
+                    },
+                    child: ListTile(
+                      leading: Image.network(movie.image),
+                      title: Text(
+                        movie.title,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      subtitle: Text(
+                        movie.originalTitle,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  );
+                },
               ),
-            );
-          },
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 25.0),
+              child: Image.asset(
+                'assets/images/jiji2.png',
+                width: 280,
+                height: 155,
+              ),
+            ),
+          ],
         ),
       ),
     );
