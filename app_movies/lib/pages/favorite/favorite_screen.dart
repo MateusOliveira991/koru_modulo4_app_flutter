@@ -1,4 +1,6 @@
+import 'package:app_movies/pages/Books/books_page.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import 'package:app_movies/pages/favorite/favorites_provider.dart';
 import 'package:app_movies/pages/Home/home_details_screen.dart';
@@ -80,6 +82,48 @@ class FavoriteScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 6),
+              child: Icon(Iconsax.home),
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 6),
+              child: Icon(Iconsax.ticket),
+            ),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 6),
+              child: Icon(Iconsax.book_1),
+            ),
+            label: 'Books',
+          ),
+        ],
+        selectedItemColor: const Color(0xFFBCBCCD),
+        unselectedItemColor: const Color(0xFFBCBCCD),
+        onTap: (int index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => FavoriteScreen(),
+              ),
+            );
+          } else if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => BookPage()),
+            );
+          }
+        },
       ),
     );
   }

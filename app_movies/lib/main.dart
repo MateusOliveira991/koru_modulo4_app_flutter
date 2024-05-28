@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => FavoritesProvider(),
-      child: MaterialApp(
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'My App',
         home: LoginPage(),
       ),

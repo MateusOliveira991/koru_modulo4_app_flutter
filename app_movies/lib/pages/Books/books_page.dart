@@ -1,7 +1,9 @@
+import 'package:app_movies/pages/favorite/favorite_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_images.dart';
 import 'package:app_movies/core/app_colors.dart';
+import 'package:iconsax/iconsax.dart';
 
 void main() {
   runApp(const MyApp());
@@ -134,6 +136,9 @@ class BookPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.backgroundColor,
+        iconTheme: const IconThemeData(
+          color: AppColors.iconColor,
+        ),
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -319,6 +324,48 @@ class BookPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 6),
+              child: Icon(Iconsax.home),
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 6),
+              child: Icon(Iconsax.ticket),
+            ),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: EdgeInsets.only(top: 6),
+              child: Icon(Iconsax.book_1),
+            ),
+            label: 'Books',
+          ),
+        ],
+        selectedItemColor: const Color(0xFFBCBCCD),
+        unselectedItemColor: const Color(0xFFBCBCCD),
+        onTap: (int index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => FavoriteScreen(),
+              ),
+            );
+          } else if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => BookPage()),
+            );
+          }
+        },
       ),
     );
   }

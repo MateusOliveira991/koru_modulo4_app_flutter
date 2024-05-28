@@ -306,21 +306,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
                     icon: Padding(
-                      padding: EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: 6),
                       child: Icon(Iconsax.home),
                     ),
                     label: 'Home',
                   ),
                   BottomNavigationBarItem(
                     icon: Padding(
-                      padding: EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: 6),
                       child: Icon(Iconsax.ticket),
                     ),
                     label: 'Favorites',
                   ),
                   BottomNavigationBarItem(
                     icon: Padding(
-                      padding: EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: 6),
                       child: Icon(Iconsax.book_1),
                     ),
                     label: 'Books',
