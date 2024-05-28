@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:app_movies/models/movie.dart';
-import 'package:app_movies/api/movie_api.dart';  // Importe a classe da API
+import 'package:app_movies/api/movie_api.dart'; // Importe a classe da API
 
 class FavoritesProvider with ChangeNotifier {
   final List<String> _favoriteMovieIds = [];

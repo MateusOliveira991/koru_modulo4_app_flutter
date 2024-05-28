@@ -366,21 +366,18 @@ class FavoriteIconButton extends StatefulWidget {
 }
 
 class _FavoriteIconButtonState extends State<FavoriteIconButton> {
-  bool isFavorite = false;
-
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        setState(() {
-          isFavorite = !isFavorite;
-        });
         final favoritesProvider =
             Provider.of<FavoritesProvider>(context, listen: false);
         favoritesProvider.toggleFavorite(widget.movie);
       },
       icon: Icon(
-        isFavorite ? Iconsax.heart5 : Iconsax.heart,
+        context.watch<FavoritesProvider>().isFavorite(widget.movie.id)
+            ? Iconsax.heart5
+            : Iconsax.heart,
         size: 24,
         color: Colors.red,
       ),
