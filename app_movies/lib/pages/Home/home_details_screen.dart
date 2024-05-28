@@ -4,6 +4,7 @@ import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/pages/favorite/favorites_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final Movie movie;
@@ -81,13 +82,16 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              widget.movie.title,
-                              style: const TextStyle(
-                                fontSize: 24,
-                                color: AppColors.textColorBlack,
-                                fontFamily: 'Merriweather',
-                                fontWeight: FontWeight.w900,
+                            Expanded(
+                              child: AutoSizeText(
+                                widget.movie.title,
+                                maxLines: 1,
+                                style: const TextStyle(
+                                  fontSize: 24,
+                                  color: AppColors.textColorBlack,
+                                  fontFamily: 'Merriweather',
+                                  fontWeight: FontWeight.w900,
+                                ),
                               ),
                             ),
                             const SizedBox(width: 10),
