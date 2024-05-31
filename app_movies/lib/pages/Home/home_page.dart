@@ -61,7 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 slivers: <Widget>[
                   SliverAppBar(
                     backgroundColor: AppColors.backgroundColor,
-                    title: const Text(
+                    
+                    title: const Padding(
+                      padding: EdgeInsets.only(top: 15),
+                      child: Text(
                       'Ghibli Stream',
                       style: TextStyle(
                         color: AppColors.textColor,
@@ -69,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontFamily: 'Merriweather',
                         fontWeight: FontWeight.w900,
                       ),
+                    ),
                     ),
                     centerTitle: true,
                     pinned: false,
@@ -130,9 +134,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             const Padding(
                               padding: EdgeInsets.all(30),
                               child: Text(
-                                'Mais populares',
+                                'Mais Populares',
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 25,
                                   fontFamily: 'Merriweather',
                                   fontWeight: FontWeight.w900,
                                   color: AppColors.textColor,
@@ -187,11 +191,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               },
                             ),
                           const Padding(
-                            padding: EdgeInsets.all(30),
+                            padding: EdgeInsets.only(top:20, left: 30),
                             child: Text(
                               'Lista Completa',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 25,
                                 fontFamily: 'Merriweather',
                                 fontWeight: FontWeight.w900,
                                 color: AppColors.textColor,
@@ -326,10 +330,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     label: 'Books',
                   ),
                 ],
-                selectedItemColor: const Color(0xFFBCBCCD),
-                unselectedItemColor: const Color(0xFFBCBCCD),
+                selectedItemColor: Color.fromARGB(255, 52, 52, 52),
+                unselectedItemColor: Color.fromARGB(255, 51, 51, 51),
                 onTap: (int index) {
-                  if (index == 1) {
+                  if (index == 0) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => MyHomePage(),
+                      ),
+                    );
+                  } else if (index == 1) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(

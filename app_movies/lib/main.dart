@@ -1,3 +1,4 @@
+import 'package:app_movies/pages/Home/home_page.dart';
 import 'package:app_movies/pages/Login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // Verifique se esta linha está presente
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'My App',
-        home: LoginPage(),
+        home: MyHomePage(),
       ),
     );
   }

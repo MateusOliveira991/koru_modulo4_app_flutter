@@ -1,3 +1,4 @@
+import 'package:app_movies/pages/Home/home_page.dart';
 import 'package:app_movies/pages/favorite/favorite_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -349,10 +350,17 @@ class BookPage extends StatelessWidget {
             label: 'Books',
           ),
         ],
-        selectedItemColor: const Color(0xFFBCBCCD),
-        unselectedItemColor: const Color(0xFFBCBCCD),
+        selectedItemColor: Color.fromARGB(255, 52, 52, 52),
+        unselectedItemColor: Color.fromARGB(255, 51, 51, 51),
         onTap: (int index) {
-          if (index == 1) {
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => MyHomePage(),
+              ),
+            );
+          } else if (index == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(

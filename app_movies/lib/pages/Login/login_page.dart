@@ -17,10 +17,10 @@ class LoginPage extends StatelessWidget {
     await Future.delayed(loginTime);
     final storedPassword = await _userPreferences.getUserPassword(data.name);
     if (storedPassword == null) {
-      return 'Usuário não existe';
+      return 'Dados inválidos';
     }
     if (storedPassword != data.password) {
-      return 'A senha informada não confere';
+      return 'Dados inválidos';
     }
     return null;
   }

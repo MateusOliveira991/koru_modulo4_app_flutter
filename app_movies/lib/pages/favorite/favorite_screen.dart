@@ -1,4 +1,5 @@
 import 'package:app_movies/pages/Books/books_page.dart';
+import 'package:app_movies/pages/Home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
@@ -107,10 +108,17 @@ class FavoriteScreen extends StatelessWidget {
             label: 'Books',
           ),
         ],
-        selectedItemColor: const Color(0xFFBCBCCD),
-        unselectedItemColor: const Color(0xFFBCBCCD),
+        selectedItemColor: Color.fromARGB(255, 52, 52, 52),
+        unselectedItemColor: Color.fromARGB(255, 51, 51, 51),
         onTap: (int index) {
-          if (index == 1) {
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => MyHomePage(),
+              ),
+            );
+          } else if (index == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(
