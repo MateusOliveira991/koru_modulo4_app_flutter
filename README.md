@@ -1,13 +1,16 @@
 # Projeto do Aplicativo de Filmes e Séries 
 
-Nesta fase inicial do projeto, nosso foco está na criação da tela inicial do aplicativo, que irá exibir uma lista estática de filmes e séries. 
-Este é o ponto de partida para os usuários explorarem o vasto catálogo de conteúdo disponível no aplicativo. 
+Este projeto envolve a criação de um aplicativo fictício de filmes do Studio Ghibli. O aplicativo oferece uma experiência completa para os fãs, permitindo o acesso a uma vasta coleção de filmes e séries, com diversas funcionalidades para melhorar a interação do usuário.
 
-# Objetivo Inicial:
-* Criar uma tela inicial que apresente uma lista estática de filmes e séries;
-* Projetar o layout da tela inicial, decidindo sobre a disposição dos elementos e o estilo visual;
-* Implementar a lista estática de filmes e séries utilizando Flutter;
- * dados criando uma lista de objetos representando cada filme ou série, incluindo título, descrição e URL da imagem do pôster.
+# Funcionalidades:
+* Tela de Login: Permite o registro de novos usuários e o login utilizando dados armazenados em um banco de dados.
+* Lista de Filmes e Séries: Exibe uma lista de filmes e séries consumidos de uma API.
+* Detalhes dos Filmes: Apresenta a sinopse e o pôster ao clicar em cada filme.
+* Favoritos: Possibilita marcar filmes como favoritos.
+* Visualização de Favoritos: Disponibiliza um espaço para visualização dos filmes marcados como favoritos.
+* Espaço para Livros: Inclui uma seção dedicada aos livros do Studio Ghibli.
 
- * ![ghibli](https://github.com/MateusOliveira991/koru_modulo4_app_flutter/assets/142065746/717181d5-15b3-453f-b6d7-cf3e47e1cb87)
+
+![image](https://github.com/MateusOliveira991/koru_modulo4_app_flutter/assets/142065746/37966e62-f5ec-425c-8393-a82e16a12fc9)
+
 
