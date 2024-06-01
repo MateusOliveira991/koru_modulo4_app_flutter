@@ -1,3 +1,4 @@
+import 'package:app_movies/core/app_images.dart';
 import 'package:app_movies/pages/Books/books_page.dart';
 import 'package:app_movies/pages/Home/home_page.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,50 @@ class FavoriteScreen extends StatelessWidget {
                 itemCount: favoriteMovies.length,
                 itemBuilder: (context, index) {
                   final movie = favoriteMovies[index];
-                  return GestureDetector(
+                  return ListTile(
+                    leading: Image.network(movie.image),
+                    title: Text(
+                      movie.title,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    subtitle: Text(
+                      movie.originalTitle,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            movie.watched
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: movie.watched ? Colors.green : Colors.grey,
+                          ),
+                          onPressed: () {
+                            String message =
+                                movie.watched ? 'Não Assistido' : 'Assistido';
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(message),
+                                duration:
+                                    Duration(seconds: 1), // Duração da mensagem
+                              ),
+                            );
+                            favoritesProvider.toggleWatched(movie);
+                          },
+                        ),
+                        IconButton(
+                          icon: const ImageIcon(
+                            AssetImage(AppImages.corequebrado),
+                            color: Colors.red,
+                          ),
+                          onPressed: () {
+                            favoritesProvider.toggleFavorite(movie);
+                          },
+                        ),
+                      ],
+                    ),
                     onTap: () {
                       Navigator.push(
                         context,
@@ -57,23 +101,6 @@ class FavoriteScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    child: ListTile(
-                      leading: Image.network(movie.image),
-                      title: Text(
-                        movie.title,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      subtitle: Text(
-                        movie.originalTitle,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.remove_circle, color: Colors.red),
-                        onPressed: () {
-                          favoritesProvider.toggleFavorite(movie);
-                        },
-                      ),
-                    ),
                   );
                 },
               ),

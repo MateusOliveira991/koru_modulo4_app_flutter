@@ -30,6 +30,11 @@ class FavoritesProvider with ChangeNotifier {
     await _saveFavorites();
   }
 
+  void toggleWatched(Movie movie) {
+    movie.watched = !movie.watched;
+    notifyListeners();
+  }
+
   void _loadFavorites() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String>? favoriteIds = prefs.getStringList('favoriteMovieIds');
