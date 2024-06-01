@@ -87,6 +87,7 @@ flutter:
     - assets/images/livro4_3.png
     - assets/images/login.png
     - assets/images/jiji2.png
+    - assets/images/corequebrado.png
 
   fonts:
     - family: Merriweather
