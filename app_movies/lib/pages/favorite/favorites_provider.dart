@@ -62,8 +62,7 @@ class FavoritesProvider with ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      return ;
-     
+      return;
     }
   }
 

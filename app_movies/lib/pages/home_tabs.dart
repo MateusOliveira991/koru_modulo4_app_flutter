@@ -19,8 +19,9 @@ class _HomeTabsState extends State<HomeTabs>
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
-    _tabController.addListener(() { setState(() {}); //Sempre que tiver uma atualização, o setState é chamado, a tela é atualizada
-    
+    _tabController.addListener(() {
+      setState(
+          () {}); //Sempre que tiver uma atualização, o setState é chamado, a tela é atualizada
     });
   }
 

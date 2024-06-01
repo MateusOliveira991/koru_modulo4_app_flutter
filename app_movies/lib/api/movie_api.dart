@@ -20,7 +20,6 @@ class MovieApi {
 
       return movies;
     } else {
-      
       throw Exception('Could not retrieve data from api');
     }
   }

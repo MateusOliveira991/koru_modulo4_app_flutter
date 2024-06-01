@@ -1,4 +1,3 @@
-
 import 'package:app_movies/pages/home_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // Verifique se esta linha está presente

@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_images.dart';
@@ -27,9 +26,9 @@ class BookPage extends StatefulWidget {
   State<BookPage> createState() => _BookPageState();
 }
 
-class _BookPageState extends State<BookPage> with AutomaticKeepAliveClientMixin{
-
-@override
+class _BookPageState extends State<BookPage>
+    with AutomaticKeepAliveClientMixin {
+  @override
   bool get wantKeepAlive => true;
 
   final List<Book> books = [
@@ -320,7 +319,6 @@ class _BookPageState extends State<BookPage> with AutomaticKeepAliveClientMixin{
           ),
         ),
       ),
-      
     );
   }
 }

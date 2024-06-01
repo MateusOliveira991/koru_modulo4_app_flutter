@@ -5,7 +5,6 @@ import 'package:flutter_login/flutter_login.dart';
 import 'package:app_movies/core/app_images.dart';
 import 'package:app_movies/core/app_colors.dart';
 
-
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 

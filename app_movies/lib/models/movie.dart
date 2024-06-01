@@ -20,7 +20,7 @@ class Movie {
   final String url;
   bool watched;
 
-   Movie({
+  Movie({
     required this.id,
     required this.title,
     required this.originalTitle,
@@ -62,7 +62,6 @@ class Movie {
       url: json['url'],
     );
   }
-
 }
 
 final filteredMovies =

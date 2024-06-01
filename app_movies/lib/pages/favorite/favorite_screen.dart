@@ -5,14 +5,15 @@ import 'package:app_movies/pages/favorite/favorites_provider.dart';
 import 'package:app_movies/pages/Home/home_details_screen.dart';
 import 'package:app_movies/core/app_colors.dart';
 
-class FavoriteScreen extends StatefulWidget{
+class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({super.key});
-  
+
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
-class _FavoriteScreenState extends State<FavoriteScreen> with AutomaticKeepAliveClientMixin{
+class _FavoriteScreenState extends State<FavoriteScreen>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
