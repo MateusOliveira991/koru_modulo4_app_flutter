@@ -11,7 +11,6 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final favoritesProvider = Provider.of<FavoritesProvider>(context);
-
     final favoriteMovies = favoritesProvider.favoriteMovies;
 
     return Scaffold(
@@ -67,6 +66,12 @@ class FavoriteScreen extends StatelessWidget {
                       subtitle: Text(
                         movie.originalTitle,
                         style: const TextStyle(color: Colors.white),
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.remove_circle, color: Colors.red),
+                        onPressed: () {
+                          favoritesProvider.toggleFavorite(movie);
+                        },
                       ),
                     ),
                   );
