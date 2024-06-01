@@ -15,7 +15,7 @@ class MovieDetailScreen extends StatefulWidget {
   });
 
   @override
-  _MovieDetailScreenState createState() => _MovieDetailScreenState();
+  State<MovieDetailScreen> createState() => _MovieDetailScreenState();
 }
 
 class _MovieDetailScreenState extends State<MovieDetailScreen> {

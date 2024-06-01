@@ -1,26 +1,8 @@
-import 'package:app_movies/pages/Home/home_page.dart';
-import 'package:app_movies/pages/favorite/favorite_screen.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:app_movies/core/app_images.dart';
 import 'package:app_movies/core/app_colors.dart';
-import 'package:iconsax/iconsax.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Books Ghibli',
-      home: BookPage(),
-    );
-  }
-}
 
 class Book {
   final String title;
@@ -38,7 +20,18 @@ class Book {
   });
 }
 
-class BookPage extends StatelessWidget {
+class BookPage extends StatefulWidget {
+  const BookPage({super.key});
+
+  @override
+  State<BookPage> createState() => _BookPageState();
+}
+
+class _BookPageState extends State<BookPage> with AutomaticKeepAliveClientMixin{
+
+@override
+  bool get wantKeepAlive => true;
+
   final List<Book> books = [
     Book(
       title: 'Princess Mononoke',
@@ -134,6 +127,7 @@ class BookPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.backgroundColor,
@@ -326,55 +320,7 @@ class BookPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 6),
-              child: Icon(Iconsax.home),
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 6),
-              child: Icon(Iconsax.ticket),
-            ),
-            label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 6),
-              child: Icon(Iconsax.book_1),
-            ),
-            label: 'Books',
-          ),
-        ],
-        selectedItemColor: Color.fromARGB(255, 52, 52, 52),
-        unselectedItemColor: Color.fromARGB(255, 51, 51, 51),
-        onTap: (int index) {
-          if (index == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => MyHomePage(),
-              ),
-            );
-          } else if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => FavoriteScreen(),
-              ),
-            );
-          } else if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => BookPage()),
-            );
-          }
-        },
-      ),
+      
     );
   }
 }

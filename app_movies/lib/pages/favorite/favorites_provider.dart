@@ -62,7 +62,8 @@ class FavoritesProvider with ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      print('Error fetching movie details: $e');
+      return ;
+     
     }
   }
 
