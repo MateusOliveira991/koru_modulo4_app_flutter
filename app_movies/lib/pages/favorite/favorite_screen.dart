@@ -37,8 +37,9 @@ class FavoriteScreen extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               AppColors.backgroundColor,
-              AppColors.accentColor,
               AppColors.backgroundColor,
+              AppColors.accentColor,
+              
             ],
           ),
         ),
