@@ -20,8 +20,6 @@ class MovieApi {
 
       return movies;
     } else {
-      print('Error: ${response.body}');
-      print('Status Code: ${response.statusCode}');
       throw Exception('Could not retrieve data from api');
     }
   }

@@ -18,8 +18,9 @@ class Movie {
   final List<String> locations;
   final List<String> vehicles;
   final String url;
+  bool watched;
 
-  const Movie({
+  Movie({
     required this.id,
     required this.title,
     required this.originalTitle,
@@ -37,6 +38,7 @@ class Movie {
     required this.locations,
     required this.vehicles,
     required this.url,
+    this.watched = false,
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) {

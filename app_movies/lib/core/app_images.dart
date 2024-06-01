@@ -1,7 +1,4 @@
-
-
 class AppImages {
-
   static const String livro1 = 'assets/images/livro1.png';
   static const String livro1_1 = 'assets/images/livro1_1.png';
   static const String livro1_2 = 'assets/images/livro1_2.png';
@@ -20,5 +17,5 @@ class AppImages {
   static const String livro4_2 = 'assets/images/livro4_2.png';
   static const String livro4_3 = 'assets/images/livro4_3.png';
   static const String login = 'assets/images/login.png';
-
+  static const String corequebrado = 'assets/images/corequebrado.png';
 }

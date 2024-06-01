@@ -1,9 +1,9 @@
-import 'package:app_movies/pages/Login/%20UserPreferences.dart';
+import 'package:app_movies/pages/Login/user_preferences.dart';
+import 'package:app_movies/pages/home_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:app_movies/core/app_images.dart';
 import 'package:app_movies/core/app_colors.dart';
-import 'package:app_movies/pages/Home/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -54,7 +54,7 @@ class LoginPage extends StatelessWidget {
       onSignup: _signupUser,
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const MyHomePage(),
+          builder: (context) => const HomeTabs(),
         ));
       },
       onRecoverPassword: _recoverPassword,

@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:app_movies/core/app_colors.dart';
-import 'package:app_movies/pages/Books/books_page.dart';
 import 'package:app_movies/pages/Home/home_details_screen.dart';
 import 'package:app_movies/api/movie_api.dart';
 import 'package:app_movies/models/movie.dart';
 import 'package:app_movies/pages/Login/login_page.dart';
-import 'package:app_movies/pages/favorite/favorite_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:app_movies/pages/favorite/favorites_provider.dart';
 
@@ -15,14 +13,20 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with AutomaticKeepAliveClientMixin {
+  late Future<List<Movie>> filmes;
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
-    MovieApi.fetchMovies();
     super.initState();
+    filmes = MovieApi.fetchMovies();
   }
 
   String searchText = '';
@@ -40,8 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return FutureBuilder(
-        future: MovieApi.fetchMovies(),
+        future: filmes,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
@@ -51,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           if (snapshot.data != null) {
             final data = snapshot.data!;
+            movies.clear();
             for (var item in data) {
               movies.add(item);
             }
@@ -61,18 +67,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 slivers: <Widget>[
                   SliverAppBar(
                     backgroundColor: AppColors.backgroundColor,
-                    
                     title: const Padding(
                       padding: EdgeInsets.only(top: 15),
                       child: Text(
-                      'Ghibli Stream',
-                      style: TextStyle(
-                        color: AppColors.textColor,
-                        fontSize: 40,
-                        fontFamily: 'Merriweather',
-                        fontWeight: FontWeight.w900,
+                        'Ghibli Stream',
+                        style: TextStyle(
+                          color: AppColors.textColor,
+                          fontSize: 40,
+                          fontFamily: 'Merriweather',
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
-                    ),
                     ),
                     centerTitle: true,
                     pinned: false,
@@ -191,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               },
                             ),
                           const Padding(
-                            padding: EdgeInsets.only(top:20, left: 30),
+                            padding: EdgeInsets.only(top: 20, left: 30),
                             child: Text(
                               'Lista Completa',
                               style: TextStyle(
@@ -306,55 +311,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              bottomNavigationBar: BottomNavigationBar(
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Padding(
-                      padding: EdgeInsets.only(top: 6),
-                      child: Icon(Iconsax.home),
-                    ),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Padding(
-                      padding: EdgeInsets.only(top: 6),
-                      child: Icon(Iconsax.ticket),
-                    ),
-                    label: 'Favorites',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Padding(
-                      padding: EdgeInsets.only(top: 6),
-                      child: Icon(Iconsax.book_1),
-                    ),
-                    label: 'Books',
-                  ),
-                ],
-                selectedItemColor: Color.fromARGB(255, 52, 52, 52),
-                unselectedItemColor: Color.fromARGB(255, 51, 51, 51),
-                onTap: (int index) {
-                  if (index == 0) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => MyHomePage(),
-                      ),
-                    );
-                  } else if (index == 1) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => FavoriteScreen(),
-                      ),
-                    );
-                  } else if (index == 2) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => BookPage()),
-                    );
-                  }
-                },
-              ),
             );
           }
 
@@ -370,10 +326,10 @@ class _MyHomePageState extends State<MyHomePage> {
 class FavoriteIconButton extends StatefulWidget {
   final Movie movie;
 
-  FavoriteIconButton({required this.movie});
+  const FavoriteIconButton({super.key, required this.movie});
 
   @override
-  _FavoriteIconButtonState createState() => _FavoriteIconButtonState();
+  State<FavoriteIconButton> createState() => _FavoriteIconButtonState();
 }
 
 class _FavoriteIconButtonState extends State<FavoriteIconButton> {
