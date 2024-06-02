@@ -30,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   String searchText = '';
+  String searchDirector = '';
 
   List<Movie> get filteredMovies {
     if (searchText.isEmpty) {
@@ -41,6 +42,17 @@ class _MyHomePageState extends State<MyHomePage>
           .toList();
     }
   }
+
+List<Movie> get filteredMoviesByDirector {
+  if (searchDirector.isEmpty) {
+    return movies;
+  } else {
+    return movies
+        .where((movie) =>
+            movie.director.toLowerCase().contains(searchDirector.toLowerCase()))
+        .toList();
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage>
                   SliverAppBar(
                     backgroundColor: AppColors.backgroundColor,
                     title: const Padding(
-                      padding: EdgeInsets.only(top: 55, bottom: 30),
+                      padding: EdgeInsets.only(top: 15),
                       child: Text(
                         'Ghibli Stream',
                         style: TextStyle(
@@ -113,8 +125,7 @@ class _MyHomePageState extends State<MyHomePage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.only(
-                                top: 20, bottom: 1, left: 15, right: 15),
+                            padding: const EdgeInsets.all(15.0),
                             child: TextField(
                               onChanged: (value) {
                                 setState(() {
@@ -124,7 +135,6 @@ class _MyHomePageState extends State<MyHomePage>
                               decoration: InputDecoration(
                                 hintText: "Search",
                                 prefixIcon: const Icon(Icons.search),
-                                prefixIconColor: AppColors.quaternaryColor,
                                 contentPadding: const EdgeInsets.symmetric(
                                     vertical: 10.0, horizontal: 20.0),
                                 border: const OutlineInputBorder(
@@ -137,10 +147,32 @@ class _MyHomePageState extends State<MyHomePage>
                               ),
                             ),
                           ),
-                          if (searchText.isEmpty)
+                          Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  searchDirector = value;
+                                });
+                              },
+                              decoration: InputDecoration(
+                                hintText: "Search by director",
+                                prefixIcon: const Icon(Icons.search),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 10.0, horizontal: 20.0),
+                                border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25.0)),
+                                  borderSide: BorderSide.none,
+                                ),
+                                filled: true,
+                                fillColor: Colors.white.withOpacity(0.1),
+                              ),
+                            ),
+                          ),
+                          if (searchText.isEmpty && searchDirector.isEmpty)
                             const Padding(
-                              padding: EdgeInsets.only(
-                                  top: 15, left: 20, bottom: 25),
+                              padding: EdgeInsets.all(30),
                               child: Text(
                                 'Mais Populares',
                                 style: TextStyle(
@@ -152,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage>
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                          if (searchText.isEmpty)
+                          if (searchText.isEmpty && searchDirector.isEmpty)
                             CarouselSlider.builder(
                               itemCount: filteredMovies.isNotEmpty
                                   ? filteredMovies.length
@@ -199,7 +231,7 @@ class _MyHomePageState extends State<MyHomePage>
                               },
                             ),
                           const Padding(
-                            padding: EdgeInsets.only(top: 30, left: 20),
+                            padding: EdgeInsets.only(top: 20, left: 30),
                             child: Text(
                               'Lista Completa',
                               style: TextStyle(
