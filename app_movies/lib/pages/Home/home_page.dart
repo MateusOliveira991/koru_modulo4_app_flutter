@@ -30,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   String searchText = '';
+  String searchDirector = '';
 
   List<Movie> get filteredMovies {
     if (searchText.isEmpty) {
@@ -41,6 +42,17 @@ class _MyHomePageState extends State<MyHomePage>
           .toList();
     }
   }
+
+List<Movie> get filteredMoviesByDirector {
+  if (searchDirector.isEmpty) {
+    return movies;
+  } else {
+    return movies
+        .where((movie) =>
+            movie.director.toLowerCase().contains(searchDirector.toLowerCase()))
+        .toList();
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +147,30 @@ class _MyHomePageState extends State<MyHomePage>
                               ),
                             ),
                           ),
-                          if (searchText.isEmpty)
+                          Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  searchDirector = value;
+                                });
+                              },
+                              decoration: InputDecoration(
+                                hintText: "Search by director",
+                                prefixIcon: const Icon(Icons.search),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 10.0, horizontal: 20.0),
+                                border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25.0)),
+                                  borderSide: BorderSide.none,
+                                ),
+                                filled: true,
+                                fillColor: Colors.white.withOpacity(0.1),
+                              ),
+                            ),
+                          ),
+                          if (searchText.isEmpty && searchDirector.isEmpty)
                             const Padding(
                               padding: EdgeInsets.all(30),
                               child: Text(
@@ -149,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage>
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                          if (searchText.isEmpty)
+                          if (searchText.isEmpty && searchDirector.isEmpty)
                             CarouselSlider.builder(
                               itemCount: filteredMovies.isNotEmpty
                                   ? filteredMovies.length
