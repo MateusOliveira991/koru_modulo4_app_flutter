@@ -32,9 +32,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           'Detalhes do Filme',
           style: TextStyle(
             color: AppColors.textColor,
-            fontSize: 24,
             fontFamily: 'Merriweather',
-            fontWeight: FontWeight.w900,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
           ),
         ),
         iconTheme: const IconThemeData(
