@@ -3,6 +3,7 @@ import 'package:app_movies/pages/Home/home_page.dart';
 import 'package:app_movies/pages/favorite/favorite_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:app_movies/core/app_colors.dart';
 
 class HomeTabs extends StatefulWidget {
   const HomeTabs({super.key});
@@ -67,8 +68,8 @@ class _HomeTabsState extends State<HomeTabs>
             label: 'Books',
           ),
         ],
-        selectedItemColor: const Color.fromARGB(255, 228, 17, 17),
-        unselectedItemColor: const Color.fromARGB(255, 51, 51, 51),
+        selectedItemColor: AppColors.accentColor,
+        unselectedItemColor: AppColors.iconnButtonBar,
         currentIndex: _tabController.index,
         onTap: (int index) {
           setState(() {

@@ -11,4 +11,5 @@ class AppColors {
   static const Color iconColor = Color(0xFFE5E5E5);
   static const Color textColorBlack = Color(0xFF000000);
   static const Color iconColorBlack = Color(0xFF000000);
+  static const Color iconnButtonBar = Color.fromARGB(255, 62, 62, 62);
 }

@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage>
                   SliverAppBar(
                     backgroundColor: AppColors.backgroundColor,
                     title: const Padding(
-                      padding: EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 55, bottom: 30),
                       child: Text(
                         'Ghibli Stream',
                         style: TextStyle(
@@ -113,7 +113,8 @@ class _MyHomePageState extends State<MyHomePage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.all(15.0),
+                            padding: const EdgeInsets.only(
+                                top: 20, bottom: 1, left: 15, right: 15),
                             child: TextField(
                               onChanged: (value) {
                                 setState(() {
@@ -123,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage>
                               decoration: InputDecoration(
                                 hintText: "Search",
                                 prefixIcon: const Icon(Icons.search),
+                                prefixIconColor: AppColors.quaternaryColor,
                                 contentPadding: const EdgeInsets.symmetric(
                                     vertical: 10.0, horizontal: 20.0),
                                 border: const OutlineInputBorder(
@@ -137,7 +139,8 @@ class _MyHomePageState extends State<MyHomePage>
                           ),
                           if (searchText.isEmpty)
                             const Padding(
-                              padding: EdgeInsets.all(30),
+                              padding: EdgeInsets.only(
+                                  top: 15, left: 20, bottom: 25),
                               child: Text(
                                 'Mais Populares',
                                 style: TextStyle(
@@ -196,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage>
                               },
                             ),
                           const Padding(
-                            padding: EdgeInsets.only(top: 20, left: 30),
+                            padding: EdgeInsets.only(top: 30, left: 20),
                             child: Text(
                               'Lista Completa',
                               style: TextStyle(

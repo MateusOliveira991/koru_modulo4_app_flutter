@@ -30,11 +30,12 @@ class _FavoriteScreenState extends State<FavoriteScreen>
           'Meus Favoritos',
           style: TextStyle(
             color: AppColors.textColor,
-            fontSize: 24,
             fontFamily: 'Merriweather',
-            fontWeight: FontWeight.w600,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
           ),
         ),
+        centerTitle: true,
         iconTheme: const IconThemeData(
           color: AppColors.iconColor,
         ),
@@ -114,7 +115,7 @@ class _FavoriteScreenState extends State<FavoriteScreen>
               ),
             ),
             Container(
-              padding: const EdgeInsets.only(top: 25.0),
+              padding: const EdgeInsets.only(top: 20.0),
               child: Image.asset(
                 'assets/images/jiji2.png',
                 width: 280,
