@@ -11,12 +11,13 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
+class MyHomePageState extends State<MyHomePage>
     with AutomaticKeepAliveClientMixin {
   late Future<List<Movie>> filmes;
+  List<Movie> movies = [];
 
   @override
   bool get wantKeepAlive => true;
