@@ -22,6 +22,9 @@ dependencies:
   shared_preferences: ^2.0.6
   auto_size_text: ^3.0.0
   meta: any
+  mockito: ^5.4.4
+
+
 
 dev_dependencies:
   flutter_test:
