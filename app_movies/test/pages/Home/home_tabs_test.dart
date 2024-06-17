@@ -7,7 +7,7 @@ void main() {
   group('HomeTabs', () {
     testWidgets('renderização da home tabs', (WidgetTester tester) async {
 
-      await tester.pumpWidget(MaterialApp(home: HomeTabs()));
+      await tester.pumpWidget(const MaterialApp(home: HomeTabs()));
 
       expect(find.byType(HomeTabs), findsOneWidget);
 
