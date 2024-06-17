@@ -60,7 +60,12 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                 itemBuilder: (context, index) {
                   final movie = favoriteMovies[index];
                   return ListTile(
-                    leading: Image.network(movie.image),
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(4.0),
+                      child: Image.network(
+                        movie.image,
+                      ),
+                    ),
                     title: Text(
                       movie.title,
                       style: const TextStyle(color: Colors.white),
@@ -102,7 +107,8 @@ class _FavoriteScreenState extends State<FavoriteScreen>
                               builder: (BuildContext context) {
                                 return AlertDialog(
                                   title: const Text('Confirmação'),
-                                  content: const Text('Remover filme dos favoritos?'),
+                                  content: const Text(
+                                      'Remover filme dos favoritos?'),
                                   actions: <Widget>[
                                     TextButton(
                                       child: const Text('Não'),

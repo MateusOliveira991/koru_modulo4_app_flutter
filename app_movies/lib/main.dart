@@ -1,6 +1,6 @@
 import 'package:app_movies/pages/home_tabs.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; // Verifique se esta linha está presente
+import 'package:provider/provider.dart';
 import 'package:app_movies/pages/favorite/favorites_provider.dart';
 
 void main() {

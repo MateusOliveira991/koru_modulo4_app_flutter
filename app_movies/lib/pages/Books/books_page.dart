@@ -33,7 +33,7 @@ class _BookPageState extends State<BookPage>
 
   final List<Book> books = [
     Book(
-      title: 'Princess Mononoke',
+      title: ' Princess Mononoke',
       price: 374.90,
       image: AppImages.livro1,
       description:
@@ -48,7 +48,7 @@ class _BookPageState extends State<BookPage>
       ],
     ),
     Book(
-      title: "Castelo no Céu",
+      title: " Castelo no Céu",
       price: 246.90,
       image: AppImages.livro2,
       description:
@@ -63,7 +63,7 @@ class _BookPageState extends State<BookPage>
       ],
     ),
     Book(
-      title: "Meu Amigo Totoro",
+      title: " Meu Amigo Totoro",
       price: 167.90,
       image: AppImages.livro3,
       description:
@@ -78,7 +78,7 @@ class _BookPageState extends State<BookPage>
       ],
     ),
     Book(
-      title: 'Ponyo',
+      title: ' Ponyo',
       price: 160.90,
       image: AppImages.livro4,
       description:
@@ -90,36 +90,6 @@ class _BookPageState extends State<BookPage>
         AppImages.livro4_1,
         AppImages.livro4_2,
         AppImages.livro4_3,
-      ],
-    ),
-    Book(
-      title: "Castelo no Céu",
-      price: 246.90,
-      image: AppImages.livro2,
-      description:
-          "O Castelo no Céu é um livro fantástico. Inclui entrevistas, esboços conceituais e células de animação do filme de estreia do estúdio japonês.",
-      images: [
-        AppImages.livro2_1,
-        AppImages.livro2_2,
-        AppImages.livro2_3,
-        AppImages.livro2_1,
-        AppImages.livro2_2,
-        AppImages.livro2_3,
-      ],
-    ),
-    Book(
-      title: "Meu Amigo Totoro",
-      price: 167.90,
-      image: AppImages.livro3,
-      description:
-          "Este trabalho ricamente ilustrado contém esboços conceituais, design de personagens, cenários, pinturas e células de animação do filme.",
-      images: [
-        AppImages.livro3_1,
-        AppImages.livro3_2,
-        AppImages.livro3_3,
-        AppImages.livro3_1,
-        AppImages.livro3_2,
-        AppImages.livro3_3,
       ],
     ),
   ];
@@ -155,15 +125,6 @@ class _BookPageState extends State<BookPage>
             ),
           ],
         ),
-        centerTitle: true,
-        bottom: const PreferredSize(
-          preferredSize: Size.fromHeight(1.0),
-          child: Divider(
-            height: 1,
-            thickness: 1,
-            color: Colors.grey,
-          ),
-        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -171,8 +132,8 @@ class _BookPageState extends State<BookPage>
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              AppColors.primaryColor,
-              Color.fromARGB(255, 4, 56, 89),
+              AppColors.backgroundColor,
+              AppColors.backgroundColor,
             ],
           ),
         ),
@@ -182,73 +143,63 @@ class _BookPageState extends State<BookPage>
             children: [
               for (final book in books)
                 Padding(
-                  padding: const EdgeInsets.all(6.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Column(
+                        children: [
+                          ShaderMask(
+                            shaderCallback: (bounds) => const LinearGradient(
+                              colors: [
+                                AppColors.accentColor,
+                                AppColors.textColor,
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ).createShader(bounds),
+                            child: Text(
+                              book.title,
+                              style: const TextStyle(
+                                color: AppColors.textColor,
+                                fontFamily: 'Merriweather',
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 13)
+                        ],
+                      ),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset(
                             book.image,
-                            width: 140,
-                            height: 100,
-                            fit: BoxFit.cover,
+                            width: 110,
+                            height: 140,
+                            fit: BoxFit.contain,
                           ),
-                          const SizedBox(width: 3),
-                          Column(
-                            children: [
-                              ShaderMask(
-                                shaderCallback: (bounds) =>
-                                    const LinearGradient(
-                                  colors: [
-                                    Color.fromARGB(255, 9, 135, 66),
-                                    Color.fromARGB(255, 229, 229, 229),
-                                  ],
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                ).createShader(bounds),
-                                child: Text(
-                                  book.title,
-                                  style: const TextStyle(
-                                    color: AppColors.textColor,
-                                    fontFamily: 'Merriweather',
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                'R\$ ${book.price.toStringAsFixed(2)}',
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 10, bottom: 0, left: 10, right: 10),
+                              child: Text(
+                                book.description,
                                 style: const TextStyle(
-                                  color: AppColors.textColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.white,
                                 ),
                               ),
-                            ],
+                            ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10),
-                      Container(
-                        padding: const EdgeInsets.all(9.0),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.1), //Descrição
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Text(
-                          book.description,
-                          style: const TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 4),
                       CarouselSlider(
                         options: CarouselOptions(
                           autoPlay: true,
-                          autoPlayInterval: const Duration(seconds: 2),
+                          autoPlayInterval: const Duration(seconds: 3),
                           autoPlayAnimationDuration:
                               const Duration(milliseconds: 800),
                           autoPlayCurve: Curves.fastOutSlowIn,
@@ -260,58 +211,68 @@ class _BookPageState extends State<BookPage>
                             builder: (BuildContext context) {
                               return Container(
                                 width: MediaQuery.of(context).size.width,
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 5.0),
+                                margin: const EdgeInsets.only(
+                                    top: 0, bottom: 2, left: 20, right: 20),
                                 child: Image.asset(
                                   image,
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.contain,
                                 ),
                               );
                             },
                           );
                         }).toList(),
                       ),
-                      const SizedBox(height: 10),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: const Text('Sem estoque'),
-                                  content: const Text(
-                                      'Este livro está atualmente sem estoque.'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      child: const Text('Fechar'),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor:
-                                const Color.fromARGB(255, 0, 166, 126),
-                            textStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                      Center(
+                        child: Text(
+                          'R\$ ${book.price.toStringAsFixed(2)}',
+                          style: const TextStyle(
+                            color: AppColors.textColor,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
                           ),
-                          child: const Text('Comprar'),
                         ),
                       ),
-                      const Divider(
-                        height: 2,
-                        thickness: 1,
-                        color: Colors.grey,
+                      const SizedBox(height: 10),
+                      Center(
+                        child: SizedBox(
+                          width: 170,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text('Sem estoque'),
+                                    content: const Text(
+                                        'Este livro está atualmente sem estoque.'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text('Fechar'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white,
+                              backgroundColor:
+                                  const Color.fromARGB(255, 0, 166, 126),
+                              textStyle: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            child: const Text('COMPRAR'),
+                          ),
+                        ),
                       ),
+                  const Image(
+        image: AssetImage("assets/images/nuvem.png"),
+      ),
                     ],
                   ),
                 ),
