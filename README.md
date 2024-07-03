@@ -16,6 +16,13 @@ O aplicativo possui uma estrutura completa, que se inicia pelo login, seguido pe
 * Visualização de Favoritos: Disponibiliza um espaço para visualização dos filmes marcados, opção de marcar como assistidos e gerenciamento de favoritos (excluir filmes da lista);
 * Espaço para Livros: Inclui uma seção dedicada aos livros do Studio Ghibli com um botão de comprar com mensagem estática de falta de estoque.
 
+# Como rodar no VsCode:
+* Versão flutter usada: 3.19.0
+* git clone https://github.com/MateusOliveira991/koru_modulo4_app_flutter.git
+* Onde tem o arquivo pubspec.yaml rodar no terminal o comando: "flutter pub get" pra baixar as dependências
+* Command palette: FLutter select device
+* Debug: Start debugging
+
 
 ![image](https://github.com/MateusOliveira991/koru_modulo4_app_flutter/assets/142065746/d9a48079-5274-42dd-a2d0-c9f793e9d6d0)
 
